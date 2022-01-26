@@ -1,0 +1,475 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		18043CF2279FFD7B00C1F3FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18043CF1279FFD7B00C1F3FC /* AppDelegate.swift */; };
+		18043CF6279FFD7B00C1F3FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18043CF5279FFD7B00C1F3FC /* ViewController.swift */; };
+		18043CFB279FFD7D00C1F3FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18043CFA279FFD7D00C1F3FC /* Assets.xcassets */; };
+		18043CFE279FFD7D00C1F3FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18043CFC279FFD7D00C1F3FC /* LaunchScreen.storyboard */; };
+		18043D0727A001A600C1F3FC /* AppDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18043D0627A001A600C1F3FC /* AppDataManager.swift */; };
+		18043D0A27A0231900C1F3FC /* TodayInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18043D0927A0231900C1F3FC /* TodayInfo.swift */; };
+		18043D0F27A0FBD100C1F3FC /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18043D0E27A0FBD100C1F3FC /* HistoryViewController.swift */; };
+		18043D1427A14B8B00C1F3FC /* HistoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18043D1327A14B8A00C1F3FC /* HistoryCollectionViewCell.swift */; };
+		916B476BC5968336F0B189D2 /* Pods_Savings365.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BC5F0B2F8D429E5F61E6B86 /* Pods_Savings365.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		18043CEE279FFD7B00C1F3FC /* Savings365.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Savings365.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		18043CF1279FFD7B00C1F3FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		18043CF5279FFD7B00C1F3FC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		18043CFA279FFD7D00C1F3FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		18043CFD279FFD7D00C1F3FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		18043CFF279FFD7D00C1F3FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18043D0627A001A600C1F3FC /* AppDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataManager.swift; sourceTree = "<group>"; };
+		18043D0927A0231900C1F3FC /* TodayInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayInfo.swift; sourceTree = "<group>"; };
+		18043D0E27A0FBD100C1F3FC /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		18043D1327A14B8A00C1F3FC /* HistoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		386DB616EB1B86E1ED9592A2 /* Pods-Savings365.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Savings365.debug.xcconfig"; path = "Target Support Files/Pods-Savings365/Pods-Savings365.debug.xcconfig"; sourceTree = "<group>"; };
+		7BC5F0B2F8D429E5F61E6B86 /* Pods_Savings365.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Savings365.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F14D73A0E5AECD9F3337F100 /* Pods-Savings365.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Savings365.release.xcconfig"; path = "Target Support Files/Pods-Savings365/Pods-Savings365.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		18043CEB279FFD7B00C1F3FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				916B476BC5968336F0B189D2 /* Pods_Savings365.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		18043CE5279FFD7B00C1F3FC = {
+			isa = PBXGroup;
+			children = (
+				18043CF0279FFD7B00C1F3FC /* Savings365 */,
+				18043CEF279FFD7B00C1F3FC /* Products */,
+				5E1B09FDA391C092B95FD0C0 /* Pods */,
+				56350D6C7DF12A28418E7A68 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		18043CEF279FFD7B00C1F3FC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				18043CEE279FFD7B00C1F3FC /* Savings365.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		18043CF0279FFD7B00C1F3FC /* Savings365 */ = {
+			isa = PBXGroup;
+			children = (
+				18043D0B27A0FB7F00C1F3FC /* Modules */,
+				18043D0527A0017900C1F3FC /* DataManager */,
+				18043CF1279FFD7B00C1F3FC /* AppDelegate.swift */,
+				18043CF5279FFD7B00C1F3FC /* ViewController.swift */,
+				18043CFA279FFD7D00C1F3FC /* Assets.xcassets */,
+				18043CFC279FFD7D00C1F3FC /* LaunchScreen.storyboard */,
+				18043CFF279FFD7D00C1F3FC /* Info.plist */,
+			);
+			path = Savings365;
+			sourceTree = "<group>";
+		};
+		18043D0527A0017900C1F3FC /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				18043D0827A0230200C1F3FC /* Model */,
+				18043D0627A001A600C1F3FC /* AppDataManager.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		18043D0827A0230200C1F3FC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				18043D0927A0231900C1F3FC /* TodayInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18043D0B27A0FB7F00C1F3FC /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				18043D0C27A0FB9400C1F3FC /* HistoryPage */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		18043D0C27A0FB9400C1F3FC /* HistoryPage */ = {
+			isa = PBXGroup;
+			children = (
+				18043D1027A1175B00C1F3FC /* Views */,
+				18043D0E27A0FBD100C1F3FC /* HistoryViewController.swift */,
+			);
+			path = HistoryPage;
+			sourceTree = "<group>";
+		};
+		18043D1027A1175B00C1F3FC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				18043D1327A14B8A00C1F3FC /* HistoryCollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		56350D6C7DF12A28418E7A68 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7BC5F0B2F8D429E5F61E6B86 /* Pods_Savings365.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5E1B09FDA391C092B95FD0C0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				386DB616EB1B86E1ED9592A2 /* Pods-Savings365.debug.xcconfig */,
+				F14D73A0E5AECD9F3337F100 /* Pods-Savings365.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		18043CED279FFD7B00C1F3FC /* Savings365 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18043D02279FFD7D00C1F3FC /* Build configuration list for PBXNativeTarget "Savings365" */;
+			buildPhases = (
+				0862678233D15AAD9347C212 /* [CP] Check Pods Manifest.lock */,
+				18043CEA279FFD7B00C1F3FC /* Sources */,
+				18043CEB279FFD7B00C1F3FC /* Frameworks */,
+				18043CEC279FFD7B00C1F3FC /* Resources */,
+				E8C6908744676BCA5EC5C033 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Savings365;
+			productName = Savings365;
+			productReference = 18043CEE279FFD7B00C1F3FC /* Savings365.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		18043CE6279FFD7B00C1F3FC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1310;
+				LastUpgradeCheck = 1310;
+				TargetAttributes = {
+					18043CED279FFD7B00C1F3FC = {
+						CreatedOnToolsVersion = 13.1;
+					};
+				};
+			};
+			buildConfigurationList = 18043CE9279FFD7B00C1F3FC /* Build configuration list for PBXProject "Savings365" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 18043CE5279FFD7B00C1F3FC;
+			productRefGroup = 18043CEF279FFD7B00C1F3FC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				18043CED279FFD7B00C1F3FC /* Savings365 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		18043CEC279FFD7B00C1F3FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18043CFE279FFD7D00C1F3FC /* LaunchScreen.storyboard in Resources */,
+				18043CFB279FFD7D00C1F3FC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0862678233D15AAD9347C212 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Savings365-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8C6908744676BCA5EC5C033 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Savings365/Pods-Savings365-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Savings365/Pods-Savings365-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Savings365/Pods-Savings365-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		18043CEA279FFD7B00C1F3FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18043CF6279FFD7B00C1F3FC /* ViewController.swift in Sources */,
+				18043CF2279FFD7B00C1F3FC /* AppDelegate.swift in Sources */,
+				18043D0727A001A600C1F3FC /* AppDataManager.swift in Sources */,
+				18043D0F27A0FBD100C1F3FC /* HistoryViewController.swift in Sources */,
+				18043D0A27A0231900C1F3FC /* TodayInfo.swift in Sources */,
+				18043D1427A14B8B00C1F3FC /* HistoryCollectionViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		18043CFC279FFD7D00C1F3FC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18043CFD279FFD7D00C1F3FC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		18043D00279FFD7D00C1F3FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		18043D01279FFD7D00C1F3FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		18043D03279FFD7D00C1F3FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 386DB616EB1B86E1ED9592A2 /* Pods-Savings365.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JQM76K3G2N;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Savings365/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = whaley.savings365;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		18043D04279FFD7D00C1F3FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F14D73A0E5AECD9F3337F100 /* Pods-Savings365.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JQM76K3G2N;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Savings365/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = whaley.savings365;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		18043CE9279FFD7B00C1F3FC /* Build configuration list for PBXProject "Savings365" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18043D00279FFD7D00C1F3FC /* Debug */,
+				18043D01279FFD7D00C1F3FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18043D02279FFD7D00C1F3FC /* Build configuration list for PBXNativeTarget "Savings365" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18043D03279FFD7D00C1F3FC /* Debug */,
+				18043D04279FFD7D00C1F3FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 18043CE6279FFD7B00C1F3FC /* Project object */;
+}

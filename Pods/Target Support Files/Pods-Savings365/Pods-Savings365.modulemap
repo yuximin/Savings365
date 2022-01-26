@@ -1,0 +1,6 @@
+framework module Pods_Savings365 {
+  umbrella header "Pods-Savings365-umbrella.h"
+
+  export *
+  module * { export * }
+}
