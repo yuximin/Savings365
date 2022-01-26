@@ -42,30 +42,36 @@ class ViewController: UIViewController {
     
     private func setupSubviews() {
         view.addSubview(titleLab)
-        view.addSubview(todayNumberLab)
-        view.addSubview(checkBtn)
+        view.addSubview(numberView)
+        numberView.addSubview(todayNumberLab)
+        numberView.addSubview(checkBtn)
         view.addSubview(resetBtn)
     }
     
     private func setupConstraints() {
         titleLab.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(150)
+            make.centerY.equalToSuperview().multipliedBy(0.6)
+        }
+        
+        numberView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(titleLab.snp.bottom).offset(15)
         }
         
         todayNumberLab.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(titleLab.snp.bottom).offset(10)
+            make.left.top.bottom.equalToSuperview()
         }
         
         checkBtn.snp.makeConstraints { make in
-            make.centerY.equalTo(todayNumberLab)
+            make.centerY.equalTo(numberView)
             make.left.equalTo(todayNumberLab.snp.right).offset(10)
+            make.right.equalToSuperview()
         }
         
         resetBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(todayNumberLab.snp.bottom).offset(10)
+            make.top.equalTo(numberView.snp.bottom).offset(10)
         }
     }
     
@@ -73,36 +79,45 @@ class ViewController: UIViewController {
     
     private func reloadData(by info: TodayInfo) {
         todayNumberLab.text = "￥\(info.number)"
+        todayNumberLab.isEnabled = !info.checked
         resetBtn.isEnabled = !info.checked
         checkBtn.isSelected = info.checked
+        
+        let content = todayNumberLab.text ?? ""
+        let attributedString = NSMutableAttributedString(string: content)
+        let range = NSMakeRange(0, attributedString.length)
+        if info.checked {
+            attributedString.addAttribute(.strikethroughStyle, value: 1, range: range)
+        } else {
+            attributedString.addAttribute(.strikethroughStyle, value: 0, range: range)
+        }
+        todayNumberLab.attributedText = attributedString
+        
+        
     }
     
     // MARK: - lazy view
     
     private lazy var titleLab: UILabel = {
         let lab = UILabel()
-        lab.text = "今日目标"
-        lab.font = .boldSystemFont(ofSize: 32)
-        lab.textColor = .black
+        lab.text = "【今日目标】"
+        lab.font = .systemFont(ofSize: 22, weight: .medium)
+        lab.textColor = .systemBlue
         lab.textAlignment = .center
         return lab
+    }()
+    
+    private lazy var numberView: UIView = {
+        let view = UIView()
+        return view
     }()
     
     private lazy var todayNumberLab: UILabel = {
         let lab = UILabel()
-        lab.textColor = .black
-        lab.font = .boldSystemFont(ofSize: 28)
+        lab.textColor = .systemYellow
+        lab.font = .boldSystemFont(ofSize: 32)
         lab.textAlignment = .center
         return lab
-    }()
-    
-    private lazy var resetBtn: UIButton = {
-        let btn = UIButton()
-        btn.setTitle("换一个", for: .normal)
-        btn.setTitleColor(.blue, for: .normal)
-        btn.setTitleColor(.gray, for: .disabled)
-        btn.addTarget(self, action: #selector(onTapResetBtn(_:)), for: .touchUpInside)
-        return btn
     }()
     
     private lazy var checkBtn: UIButton = {
@@ -113,11 +128,35 @@ class ViewController: UIViewController {
         return btn
     }()
     
+    private lazy var resetBtn: UIButton = {
+        let btn = UIButton()
+        btn.setTitle("换一个", for: .normal)
+        btn.setTitleColor(.blue, for: .normal)
+        btn.setTitleColor(.gray, for: .disabled)
+        btn.addTarget(self, action: #selector(onTapResetBtn(_:)), for: .touchUpInside)
+        
+        // 长按事件
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(onLongPressResetBtn(_:)))
+        longPress.minimumPressDuration = 3.0
+        btn.addGestureRecognizer(longPress)
+        
+        return btn
+    }()
+    
     // MARK: - action
     
     @objc private func onTapResetBtn(_ sender: UIButton) {
         let info = AppDataManager.shared.resetTodayInfo()
         reloadData(by: info)
+    }
+    
+    @objc private func onLongPressResetBtn(_ sender: UIButton) {
+        // 长按设置隐藏数字
+        if var info = (AppDataManager.shared.dataPool.first { $0.number == 272 }), !info.checked, !AppDataManager.shared.todayInfo.checked {
+            info.date = AppDataManager.shared.formatDate(Date())
+            AppDataManager.shared.todayInfo = info
+            reloadData(by: info)
+        }
     }
 
     @objc private func onTapCheckBtn(_ sender: UIButton) {
