@@ -156,6 +156,23 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         cell.detailTextLabel?.text = info.date
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+        tableView.beginUpdates()
+        if editingStyle == .delete {
+            
+        }
+        tableView.endUpdates()
+    }
+    
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        "删除"
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        .delete
+    }
 }
 
 extension HistoryViewController: UICollectionViewDelegate, UICollectionViewDataSource {
