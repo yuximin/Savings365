@@ -107,7 +107,7 @@ class AppDataManager {
     }
     
     /// 重随今日数据
-    @discardableResult func resetTodayInfo() -> TodayInfo {
+    func resetTodayInfo() -> TodayInfo {
         let info = createNewTodayInfo()
         self.todayInfo = info
         return info
@@ -117,7 +117,8 @@ class AppDataManager {
     private func createNewTodayInfo() -> TodayInfo {
         let dataPool = uncheckDataPool
         let index = Int(arc4random()) % dataPool.count
-        let info = dataPool[index]
+        var info = dataPool[index]
+        info.date = formatDate(Date())
         return info
     }
     

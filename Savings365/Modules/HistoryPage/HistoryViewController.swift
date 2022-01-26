@@ -152,7 +152,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         let info = checkDatas[indexPath.row]
-        cell.textLabel?.text = "\(info.number)"
+        cell.textLabel?.text = "￥\(info.number)"
         cell.detailTextLabel?.text = info.date
         return cell
     }

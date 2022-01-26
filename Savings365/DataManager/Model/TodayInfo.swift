@@ -8,7 +8,7 @@
 import Foundation
 
 struct TodayInfo: Codable {
-    let number: Int // 今日数字
-    let date: String // 日期（"yyyy-MM-dd"）
+    var number: Int // 今日数字
+    var date: String // 日期（"yyyy-MM-dd"）
     var checked: Bool // 是否已完成
 }

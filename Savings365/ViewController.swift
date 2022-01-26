@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        reloadData()
+        reloadData(by: AppDataManager.shared.todayInfo)
     }
     
     // MARK: - UI
@@ -71,9 +71,8 @@ class ViewController: UIViewController {
     
     // MARK: - private
     
-    private func reloadData() {
-        let info = AppDataManager.shared.todayInfo
-        todayNumberLab.text = "\(info.number)"
+    private func reloadData(by info: TodayInfo) {
+        todayNumberLab.text = "￥\(info.number)"
         resetBtn.isEnabled = !info.checked
         checkBtn.isSelected = info.checked
     }
@@ -117,18 +116,17 @@ class ViewController: UIViewController {
     // MARK: - action
     
     @objc private func onTapResetBtn(_ sender: UIButton) {
-        AppDataManager.shared.resetTodayInfo()
-        reloadData()
+        let info = AppDataManager.shared.resetTodayInfo()
+        reloadData(by: info)
     }
 
     @objc private func onTapCheckBtn(_ sender: UIButton) {
         var info = AppDataManager.shared.todayInfo
         info.checked = !info.checked
-        
         AppDataManager.shared.todayInfo = info
         AppDataManager.shared.updateItemForDataPoolCache(info)
         
-        reloadData()
+        reloadData(by: info)
     }
     
     @objc private func onTapHistoryBtn(_ sender: UIBarButtonItem) {
