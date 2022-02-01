@@ -9,6 +9,6 @@ import Foundation
 
 struct TodayInfo: Codable {
     var number: Int // 今日数字
-    var date: String // 日期（"yyyy-MM-dd"）
+    var date: Date // 日期
     var checked: Bool // 是否已完成
 }

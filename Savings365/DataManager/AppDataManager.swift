@@ -13,7 +13,6 @@ class AppDataManager {
     
     static let DataPoolCacheKey = "DataPoolCacheKey"
     static let TodayInfoCacheKey = "TodayInfoCacheKey"
-    static let CheckedListCacheKey = "CheckedListCacheKey"
     
     // MARK: 单例
     static let shared = AppDataManager()
@@ -21,7 +20,7 @@ class AppDataManager {
     // MARK: - 属性
     
     /// 今日目标
-    var todayInfo: TodayInfo {
+    var todayInfo: TodayInfo? {
         get {
             getTodayInfo()
         }
@@ -63,7 +62,7 @@ class AppDataManager {
     private func createNewDataPool() -> [TodayInfo] {
         var dataPool = [TodayInfo]()
         for i in 1...365 {
-            let info = TodayInfo(number: i, date: "", checked: false)
+            let info = TodayInfo(number: i, date: Date(timeIntervalSince1970: 0), checked: false)
             dataPool.append(info)
         }
         return dataPool
@@ -98,8 +97,8 @@ class AppDataManager {
     // MARK: - 今日数据
     
     /// 获取今日数据
-    private func getTodayInfo() -> TodayInfo {
-        if let cacheTodayInfo = getTodayInfoCache(), cacheTodayInfo.date == formatDate(Date()) {
+    private func getTodayInfo() -> TodayInfo? {
+        if let cacheTodayInfo = getTodayInfoCache(), AppDataManager.formatDate(cacheTodayInfo.date) == AppDataManager.formatDate(Date()) {
             return cacheTodayInfo
         }
         
@@ -107,18 +106,24 @@ class AppDataManager {
     }
     
     /// 重随今日数据
-    func resetTodayInfo() -> TodayInfo {
+    func resetTodayInfo() -> TodayInfo? {
         let info = createNewTodayInfo()
         self.todayInfo = info
         return info
     }
     
     /// 生成新的今日数据
-    private func createNewTodayInfo() -> TodayInfo {
+    private func createNewTodayInfo() -> TodayInfo? {
         let dataPool = uncheckDataPool
+        
+        if dataPool.isEmpty {
+            // 任务全部完成
+            return nil
+        }
+        
         let index = Int(arc4random()) % dataPool.count
         var info = dataPool[index]
-        info.date = formatDate(Date())
+        info.date = Date()
         return info
     }
     
@@ -133,7 +138,11 @@ class AppDataManager {
     }
     
     /// 设置今日信息缓存
-    private func setTodayInfoCache(_ info: TodayInfo) {
+    private func setTodayInfoCache(_ info: TodayInfo?) {
+        guard let info = info else {
+            return
+        }
+        
         let encoded = try? JSONEncoder().encode(info)
         UserDefaults.standard.set(encoded, forKey: AppDataManager.TodayInfoCacheKey)
         UserDefaults.standard.synchronize()
@@ -142,14 +151,14 @@ class AppDataManager {
     // MARK: -
     
     /// 格式化时间
-    func formatDate(_ date: Date) -> String {
+    static func formatDate(_ date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter.string(from: date)
     }
     
     /// 清除 UserDefaults 所有数据
-    func clearAllUserDefaultsData(){
+    static func clearAllUserDefaultsData(){
        let userDefaults = UserDefaults.standard
        let dics = userDefaults.dictionaryRepresentation()
        for key in dics {

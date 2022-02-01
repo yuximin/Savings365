@@ -10,7 +10,7 @@ import UIKit
 class HistoryViewController: UIViewController {
     
     private var checkDatas: [TodayInfo] {
-        AppDataManager.shared.checkedDataPool
+        AppDataManager.shared.checkedDataPool.sorted { $0.date < $1.date}
     }
     
     private var allDatas: [TodayInfo] {
@@ -94,6 +94,7 @@ class HistoryViewController: UIViewController {
         tableView.backgroundView?.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.backgroundColor = .clear
         return tableView
     }()
     
@@ -109,9 +110,10 @@ class HistoryViewController: UIViewController {
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 50, height: 50)
-        layout.minimumLineSpacing = 1
-        layout.minimumInteritemSpacing = 1
+        layout.minimumLineSpacing = 5
+        layout.minimumInteritemSpacing = 5
         layout.scrollDirection = .vertical
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(HistoryCollectionViewCell.self, forCellWithReuseIdentifier: "HistoryCollectionViewCell")
@@ -120,6 +122,7 @@ class HistoryViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.isHidden = true
+        collectionView.backgroundColor = .clear
         return collectionView
     }()
     
@@ -153,7 +156,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         
         let info = checkDatas[indexPath.row]
         cell.textLabel?.text = "￥\(info.number)"
-        cell.detailTextLabel?.text = info.date
+        cell.detailTextLabel?.text = AppDataManager.formatDate(info.date)
         return cell
     }
     

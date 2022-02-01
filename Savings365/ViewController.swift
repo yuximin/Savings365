@@ -41,17 +41,27 @@ class ViewController: UIViewController {
     }
     
     private func setupSubviews() {
-        view.addSubview(titleLab)
-        view.addSubview(numberView)
+        view.addSubview(dataView)
+        dataView.addSubview(titleLab)
+        dataView.addSubview(numberView)
         numberView.addSubview(todayNumberLab)
         numberView.addSubview(checkBtn)
-        view.addSubview(resetBtn)
+        dataView.addSubview(resetBtn)
+        
+        view.addSubview(allClearLab)
     }
     
     private func setupConstraints() {
-        titleLab.snp.makeConstraints { make in
+        
+        dataView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview().multipliedBy(0.6)
+            make.width.equalToSuperview()
+        }
+        
+        titleLab.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.centerX.equalToSuperview()
         }
         
         numberView.snp.makeConstraints { make in
@@ -72,12 +82,27 @@ class ViewController: UIViewController {
         resetBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(numberView.snp.bottom).offset(10)
+            make.bottom.equalToSuperview()
+        }
+        
+        allClearLab.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().multipliedBy(0.8)
         }
     }
     
     // MARK: - private
     
-    private func reloadData(by info: TodayInfo) {
+    private func reloadData(by info: TodayInfo?) {
+        guard let info = info else {
+            dataView.isHidden = true
+            allClearLab.isHidden = false
+            return
+        }
+        
+        dataView.isHidden = false
+        allClearLab.isHidden = true
+
         todayNumberLab.text = "￥\(info.number)"
         todayNumberLab.isEnabled = !info.checked
         resetBtn.isEnabled = !info.checked
@@ -92,11 +117,14 @@ class ViewController: UIViewController {
             attributedString.addAttribute(.strikethroughStyle, value: 0, range: range)
         }
         todayNumberLab.attributedText = attributedString
-        
-        
     }
     
     // MARK: - lazy view
+    
+    private lazy var dataView: UIView = {
+        let view = UIView()
+        return view
+    }()
     
     private lazy var titleLab: UILabel = {
         let lab = UILabel()
@@ -134,33 +162,29 @@ class ViewController: UIViewController {
         btn.setTitleColor(.blue, for: .normal)
         btn.setTitleColor(.gray, for: .disabled)
         btn.addTarget(self, action: #selector(onTapResetBtn(_:)), for: .touchUpInside)
-        
-        // 长按事件
-        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(onLongPressResetBtn(_:)))
-        longPress.minimumPressDuration = 3.0
-        btn.addGestureRecognizer(longPress)
-        
         return btn
+    }()
+    
+    private lazy var allClearLab: UILabel = {
+        let lab = UILabel()
+        lab.text = "已完成全部目标"
+        lab.textColor = .systemYellow
+        lab.font = .boldSystemFont(ofSize: 32)
+        lab.textAlignment = .center
+        return lab
     }()
     
     // MARK: - action
     
     @objc private func onTapResetBtn(_ sender: UIButton) {
-        let info = AppDataManager.shared.resetTodayInfo()
-        reloadData(by: info)
-    }
-    
-    @objc private func onLongPressResetBtn(_ sender: UIButton) {
-        // 长按设置隐藏数字
-        if var info = (AppDataManager.shared.dataPool.first { $0.number == 272 }), !info.checked, !AppDataManager.shared.todayInfo.checked {
-            info.date = AppDataManager.shared.formatDate(Date())
-            AppDataManager.shared.todayInfo = info
-            reloadData(by: info)
-        }
+        reloadData(by: AppDataManager.shared.resetTodayInfo())
     }
 
     @objc private func onTapCheckBtn(_ sender: UIButton) {
-        var info = AppDataManager.shared.todayInfo
+        guard var info = AppDataManager.shared.todayInfo else {
+            return
+        }
+        
         info.checked = !info.checked
         AppDataManager.shared.todayInfo = info
         AppDataManager.shared.updateItemForDataPoolCache(info)

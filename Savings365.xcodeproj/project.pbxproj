@@ -401,6 +401,7 @@
 				DEVELOPMENT_TEAM = JQM76K3G2N;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Savings365/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "小猪储蓄";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -430,6 +431,7 @@
 				DEVELOPMENT_TEAM = JQM76K3G2N;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Savings365/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "小猪储蓄";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
