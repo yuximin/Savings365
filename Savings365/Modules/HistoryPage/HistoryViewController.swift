@@ -10,7 +10,7 @@ import UIKit
 class HistoryViewController: UIViewController {
     
     private var checkDatas: [TodayInfo] {
-        AppDataManager.shared.checkedDataPool.sorted { $0.date < $1.date}
+        AppDataManager.shared.checkedDataPool.sorted { $0.date > $1.date}
     }
     
     private var allDatas: [TodayInfo] {
